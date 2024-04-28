@@ -10,10 +10,10 @@ class Patient(Person):
                  age: int,
                  profession: str,
                  address: str,
-                 profession_diseases: str,
-                 diagnosis: Optional[str],
-                 entry_date: Optional[datetime],
-                 checkout_date: Optional[datetime]) -> None:
+                 profession_diseases: Optional[str] = None,
+                 diagnosis: Optional[str] = None,
+                 entry_date: Optional[datetime] = None,
+                 checkout_date: Optional[datetime] = None) -> None:
         super().__init__(first_name, second_name, age)
         self.profession = profession
         self.profession_diseases = profession_diseases

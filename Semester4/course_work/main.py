@@ -1,8 +1,5 @@
-
-
-from models.employees.employee import Employee
-
+from base.interfeces.console import Console
 
 if __name__ == '__main__':
-    p = Employee('John', 'Doe', 30, 'password')
-    print(p.salary)
+    interface = Console()
+    interface.menu()

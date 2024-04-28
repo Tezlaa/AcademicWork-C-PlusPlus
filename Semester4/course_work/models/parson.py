@@ -5,13 +5,13 @@ class Person:
     _first_name: str
     _second_name: str
     _age: int
+    _minimal_age = 5
+    _maximal_age = 101
     
     def __init__(self, first_name: str, second_name: str, age: int) -> None:
         self._set_first_name(first_name)
         self._set_second_name(second_name)
         self._set_age(age)
-        self._minimal_age = 5
-        self._maximal_age = 101
     
     def _set_first_name(self, value: str) -> None:
         self._valid_name(value)
@@ -39,9 +39,9 @@ class Person:
             raise ValueError(f'Unvalid value: {value}')
 
     def _valid_age(self, age: int) -> Optional[Exception]:
-        if self._minimal_age >= age >= self._maximal_age:
+        if self._minimal_age >= age <= self._maximal_age:
             raise ValueError('Unvalid age. '
-                             f'{self._minimal_age} >= {age} >= {self._maximal_age}')
+                             f'{self._minimal_age} >= {age} <= {self._maximal_age}')
 
     def __str__(self) -> str:
         return (f'First name: {self._first_name}\n'
