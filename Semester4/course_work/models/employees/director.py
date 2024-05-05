@@ -28,5 +28,5 @@ class Director(Doctor, Intern):
         positions = {'Director': self, 'Doctor': Doctor, 'Intern': Intern}
         return positions.get(position, Employee)(f_name, s_name, age, password, salary)
 
-    def method_change_employee(self, patient: Employee, field: str, value: Any) -> None:
-        patient.__setattr__(field, value)
+    def method_change_employee(self, employee: Employee, field: str, value: Any) -> None:
+        employee.__setattr__(field, value)

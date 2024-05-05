@@ -1,7 +1,7 @@
 from typing import Optional
 
 from common.tools import Tools
-from models.parson import Person
+from models.person import Person
 
 
 class Employee(Person):

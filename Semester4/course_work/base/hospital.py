@@ -16,7 +16,7 @@ class HospitalAccount:
         self.account: Optional[Employee] = None
         self.repository = Repository(sqlite3.connect('database.db'))
     
-    def login(self, login: str, password: str) -> None:
+    def login(self, login: str, password: str) -> Optional[Exception]:
         secret_key = Tools.generate_secret_key(login, password)
         account = self.repository.hash_database.get(secret_key)
         if not account:

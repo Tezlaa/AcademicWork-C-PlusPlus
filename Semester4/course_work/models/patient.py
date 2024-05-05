@@ -1,7 +1,7 @@
 
 from datetime import datetime
 from typing import Optional
-from models.parson import Person
+from models.person import Person
 
 
 class Patient(Person):
