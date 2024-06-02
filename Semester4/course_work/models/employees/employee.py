@@ -20,15 +20,15 @@ class Employee(Person):
 
     def _is_admin(self) -> bool:
         return False
-    
+
     def _is_owner(self, login: str, password: str) -> bool:
         return self._login == login and self._password == password
-    
+
     def __get_employee_key(self) -> str:
         return Tools.generate_secret_key(self._login, self._password)
-    
+
     def __str__(self) -> str:
         return f'{super().__str__()}\n\nPosition: {self.__class__.__name__}'
-    
+
     salary = property(lambda self: self._salary)
     employee_key = property(__get_employee_key)

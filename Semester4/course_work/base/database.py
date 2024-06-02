@@ -12,11 +12,11 @@ class DatabaseManager:
         self.__connect = db_connection
         self.__table_patients()
         self.__table_employees()
-    
+
     def __sql_query_and_commit(self, sql: str) -> None:
         self.__cur.execute(sql)
         self.__connect.commit()
-        
+
     def __table_patients(self) -> None:
         sql = """
             CREATE TABLE IF NOT EXISTS patients(
@@ -47,7 +47,7 @@ class DatabaseManager:
             )
         """
         self.__sql_query_and_commit(sql)
-    
+
     def _get_patients(self) -> list[tuple]:
         sql = """
             SELECT
@@ -57,7 +57,7 @@ class DatabaseManager:
             FROM patients
         """
         return self.__cur.execute(sql).fetchall()
-    
+
     def _get_employees(self) -> list[tuple]:
         sql = """
             SELECT
@@ -66,12 +66,12 @@ class DatabaseManager:
             FROM employees
         """
         return self.__cur.execute(sql).fetchall()
-    
+
     def _claer_tables(self) -> None:
         for table in ['employees', 'patients']:
             sql = f"DELETE FROM {table}"
             self.__sql_query_and_commit(sql)
-    
+
     def _set_employee(self, employee: Employee) -> None:
         sql = """
             INSERT INTO employees(position_name, first_name, second_name, age, password, salary)
@@ -84,7 +84,7 @@ class DatabaseManager:
                                  employee._password,
                                  employee.salary))
         self.__connect.commit()
-        
+
     def _set_patient(self, patient: Patient) -> None:
         sql = """
             INSERT INTO patients(

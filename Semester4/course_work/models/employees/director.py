@@ -12,13 +12,13 @@ class Director(Doctor, Intern):
                  password: str,
                  salary: Optional[float] = None) -> None:
         super().__init__(first_name, second_name, age, password, salary)
-    
+
     def _is_admin(self) -> bool:
         return True
 
     def method_set_salary(self, employee: Employee, value: float) -> None:
         employee._salary = value
-    
+
     def method_register_employee(self, position: str,
                                  f_name: str,
                                  s_name: str,

@@ -21,7 +21,7 @@ class Patient(Person):
         self.diagnosis = diagnosis
         self.entry_date = entry_date
         self.checkout_date = checkout_date
-    
+
     def __str__(self) -> str:
         return (f'{super().__str__()}\n\n'
                 f'Profession: {self.profession}\n'

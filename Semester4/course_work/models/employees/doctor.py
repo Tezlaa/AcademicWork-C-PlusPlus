@@ -2,7 +2,6 @@ from datetime import datetime
 
 from typing import Optional
 
-from models.employees.employee import Employee
 from models.employees.intern import Intern
 from models.patient import Patient
 
@@ -14,10 +13,10 @@ class Doctor(Intern):
                  password: str,
                  salary: Optional[float] = None) -> None:
         super().__init__(first_name, second_name, age, password, salary)
-    
+
     def method_set_patient_diagnosis(self, patient: Patient, diagnosis: str) -> None:
         patient.diagnosis = diagnosis
-    
+
     def method_checkout_patient(self, patient: Patient, checkout_date: datetime | None) -> None:
         if not checkout_date:
             checkout_date = datetime.now()

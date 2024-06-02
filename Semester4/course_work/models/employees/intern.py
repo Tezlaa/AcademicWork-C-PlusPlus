@@ -14,7 +14,7 @@ class Intern(Employee):
                  salary: Optional[float] = None) -> None:
         super().__init__(first_name, second_name, age, password, salary)
 
-    def method_register_parient(self, first_name: str,
+    def method_register_patient(self, first_name: str,
                                 second_name: str, age: int,
                                 profession: str,
                                 address: str,
@@ -29,6 +29,6 @@ class Intern(Employee):
             profession_diseases=profession_diseases,
             entry_date=entry_date,
         )
-    
+
     def method_change_patient(self, patient: Patient, field: str, value: Any) -> None:
         patient.__setattr__(field, value)

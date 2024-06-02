@@ -13,12 +13,12 @@ class Repository(DatabaseManager):
     hash_database = {}
     employees: list[Employee] = []
     patients: list[Patient] = []
-    
+
     def __init__(self, db_connection: sqlite3.Connection) -> None:
         super().__init__(db_connection)
         self.__download_employess()
         self.__download_patients()
-    
+
     def __download_employess(self) -> None:
         for position, f_name, s_name, age, password, salary in self._get_employees():
             self.add_employee(
@@ -37,29 +37,29 @@ class Repository(DatabaseManager):
                     Tools.string_to_datetime(checkout_date),
                 )
             )
-    
+
     def __load_employess(self) -> None:
         for employee in self.employees:
             self._set_employee(employee)
-    
+
     def __load_patients(self) -> None:
         for patient in self.patients:
             self._set_patient(patient)
-    
+
     def add_employee(self, employee: Employee) -> None:
         employee_key = employee.employee_key
         if employee_key in self.hash_database:
             return
         self.hash_database[employee_key] = employee
         self.employees.append(employee)
-    
+
     def delete_employee(self, employee: Employee) -> None:
         employee_key = employee.employee_key
         if employee_key not in self.hash_database:
             return
         del self.hash_database[employee_key]
         self.employees.remove(employee)
-    
+
     def add_patient(self, patient: Patient) -> None:
         self.patients.append(patient)
 
